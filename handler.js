@@ -14,6 +14,8 @@ module.exports.jokes = async (event) => {
   const response = await axios.request(options);
   return {
     statusCode: 200,
-    body: {"setup": response.data.setup, "punchline": response.data.punchline}
+    body: JSON.stringify(
+      {"setup": response.data.setup, "punchline": response.data.punchline}
+    )
   }
 }
